@@ -1,0 +1,46 @@
+import pyautogui
+import time
+
+# Configurações de segurança
+pyautogui.PAUSE = 0.5
+pyautogui.FAILSAFE = True
+
+# Coordenadas do spot de 9 quadrados (ajuste conforme necessário)
+SPOT_9 = [
+    (750, 281), (854, 289), (981, 331),
+    (717, 472), (798, 475), (1055, 496),
+    (936, 606), (1193, 406), (1200, 500) # Exemplo de 9 coordenadas
+]
+
+def interagir_com_shift():
+    """Segura shift e clica em todos os 9 quadrados"""
+    print("Iniciando interação no spot...")
+    with pyautogui.hold('shift'):
+        for x, y in SPOT_9:
+            pyautogui.click(x, y, duration=0.2)
+            time.sleep(0.8) # Tempo de animação/ação do boneco
+
+def ir_para_o_spot():
+    """Caminha até o local do farm"""
+    pyautogui.click(1135, 158, duration=1)
+    time.sleep(2) # Tempo para o boneco andar
+
+# --- EXECUÇÃO ---
+
+time.sleep(3) # Tempo para você dar ALT+TAB para o jogo
+
+# Exemplo: Coletar Abóboras
+ir_para_o_spot()
+interagir_com_shift()
+pyautogui.press("a") # Finaliza/Troca ferramenta
+
+print("Ciclo concluído!")
+
+Recomendações da IA:
+
+O que melhorou:
+Manutenção: Se a posição de uma abóbora mudar, você só mexe na lista spots_aboboras.
+Segurança: O with pyautogui.hold evita que seu teclado fique "doido" se você parar o script no meio.
+Velocidade: O duration=0.5 no clique faz um movimento mais humano e fluido que o moveTo separado.
+
+Achei interessante a questão de usar a lista e mais organizado também.
