@@ -1,4 +1,0 @@
-Uma possível solução para o caso da montaria seria sempre posicionar ela
-em um local específico, assim, eu sempre apertaria A para subir nela do mesmo local
-que no caso é o último slot de  plantação, então a movimentação dela seria sempre a mesma
-aí bastaria recalcular as rotas do terreno de acordo com essa nova posição que ela vira
