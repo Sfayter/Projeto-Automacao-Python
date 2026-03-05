@@ -14,30 +14,32 @@ pyautogui.FAILSAFE = True
 
 # Os 9 slots de colheita
 SPOT_COLETA = [
-    (925, 512), (908, 725), (812, 500),
-    (1078, 507), (1197, 425), (986, 345),
-    (862, 296), (773, 472), (650, 577)
+    (968, 379), (954, 533), (827, 454),
+    (1083, 472), (1197, 425), 
+    (986, 345),
+    (862, 296), (773, 472), 
+    (650, 577)
 ]
 
 #Otimizar esse bloco posteriormente para poupar linhas e melhorar a eficiência
 #Bloco apenas para teste
 POSICAO_MONTARIA = [
-    [(1225, 620), (866,416)], #1
-    [(1225, 620), (866,416) ], #2
-    [(1225, 620), (866,416) ], #3
-    [(1225, 620), (866,416) ], #4
-    [(1225, 620), (866,416) ], #5 
-    [(1225, 620), (866,416) ], #6 
-    [(1225, 620), (866,416) ], #7
-    [(1225, 620), (866,416) ], #8
-    [(1225, 620), (866,416) ], #9
-    [(1225, 620), (866,416) ], #10
-    [(1225, 620), (866,416) ], #11 
-    [(1225, 620), (866,416) ], #12
-    [(1225, 620), (866,416) ], #13
-    [(1225, 620), (866,416) ], #14
-    [(1225, 620), (866,416) ], #15
-    [(1225, 620), (866,416) ], #16  
+    [(942,829), (966, 400)], #1
+    [(942, 825), (986, 409) ], #2
+    [(942, 830), (976, 391) ], #3
+    [(942, 829), (989, 408) ], #4
+    [(942, 829), (989,404) ], #5 
+    [(943, 828), (997, 402) ], #6 
+    [(942, 828), (980, 404) ], #7
+    [(942, 829), (988, 403) ], #8
+    [(942, 829), (988,403) ], #9
+    [(942, 829), (1001, 403) ], #10
+    [(944, 829), (994,409) ], #11
+    [(942, 829), (974, 403) ], #12
+    [(944, 829), (1000,408) ], #13
+    [(942, 829), (995,406) ], #14
+    [(942, 829), (982,399) ], #15
+    [(942, 829), (983,404) ], #16  
 ]
 
 # Os 9 slots de plantação
@@ -50,24 +52,27 @@ SPOT_PLANTACAO = [
 # MAPA DE NAVEGAÇÃO
 # Cada sub-lista [ ] contém os cliques necessários para chegar e CENTRALIZAR no terreno
 CAMINHOS_DOS_16_TERRENOS = [
-    [(1135, 158), (798, 317)],# Coordenadas para chegar da posição inicial até o terreno 1
-    [(1483, 172), (744, 308)],#, 1 > 2
-    [(1522, 358), (1142, 377), (793, 323)],# 2 > 3
-    [(75, 427), (798, 271), (764, 297)], # 3 > 4
-    [(725, 1079), (725, 1079), (964, 580), (1168, 301), (802, 329)], # 4 > 5
-    [(1584, 478), (1773, 1079), (1082, 1079), (1471, 1079), (1072, 691), (1123, 321), (793, 323)], # 5 > 6
-    [(1258, 313), (1163, 364), (793, 323)], # 6 > 7
-    [(1332, 1079), (1072, 912), (1164, 335), (793, 323)], # 7 > 8
-    [(1384, 531), (1134, 345), (793, 323)], # 8 > 9
-    [(1280, 1079), (1130, 895), (1153, 336), (793, 323)], # 9 > 10
-    
-    [(637, 1079), (637, 1079), (525, 952), (1181, 341), (793, 323)], # 10 > 11 (necessita manutenção)
-    
-    [(157, 1079), (639, 1068), (1191, 359), (793, 323)], # 11 > 12
-    [(2, 782), (811, 565), (1152, 334), (793, 323)], # 12 > 13
-    [(1919, 416), (1919, 1001), (781, 1079), (899, 1079), (932, 571), (1199, 296), (793, 323)], # 13 > 14
-    [(1812, 565), (1152, 338), (793, 323)], # 14 > 15
-    [(851, 1079), (851, 1079), (703, 1050), (1161, 326), (793, 323)], # 15 > 16
+    [(967, 249), (974, 227)],# Coordenadas para chegar da posição inicial até o terreno 1
+    [(1362, 196), (979, 211)],#, 1 > 2
+    [(1568, 310), (1000, 210)],# 2 > 3
+    [(262,  369), (517, 377), (978, 208)], # 3 > 4
+    [(852, 1079), (790, 1079), (978, 189)], # 4 > 5
+    [(1582, 323), (1713, 1079), (1409, 1079), (921, 1079), (1324, 827), (987, 211)], # 5 > 6
+    [(1313, 266), (1002, 221)], # 6 > 7
+    [(1391, 1079), (1158, 757), (986, 197)], # 7 > 8
+
+    #manutenção realizada nessa coordenada 8 > 9
+    #verificar a colheita daqui em diante para validar se está padrão
+    [(1461, 456), (979, 192)], # 8 > 9
+
+    [(1322, 1079), (1215, 695), (985, 215)], # 9 > 10
+    [(502, 1075), (1503, 850), (50,856),(989,786),(981, 213)], # 10 > 11 (necessita manutenção)
+
+    [(377, 939), (716, 933), (989, 231)], # 11 > 12
+    [(68, 679), (962, 232)], # 12 > 13
+    [(1919, 530), (1422, 350), (1685, 1079), (1423, 1079), (131, 893), (980, 193)], # 13 > 14
+    [(1841, 498), (1003, 183)], # 14 > 15
+    [(761, 1079), (693, 938), (1139, 872), (980, 218)], # 15 > 16
 ]
 
 
@@ -97,9 +102,9 @@ def realizar_plantacao(indice_terreno):
     print(f"Plantando no terreno {indice_terreno + 1}...")
     
     #------Comentado para manutenção------
-    #for x, y in SPOT_PLANTACAO:
-        #pyautogui.click(x, y, duration=0.5)
-        #time.sleep(random.uniform(1.1, 1.4))
+    for x, y in SPOT_PLANTACAO:
+        pyautogui.click(x, y, duration=0.5)
+        time.sleep(random.uniform(1.1, 1.4))
 
     #Ajusta o boneco para pegar a montaria e navegar nos terrenos
     time.sleep(3)
@@ -120,9 +125,19 @@ def realizar_plantacao(indice_terreno):
 #Função de caminhar entre os terrenos de acordo com as coordenadas passadas nas listas e sublistas
 def navegar_para_terreno(lista_de_cliques):
     for x, y in lista_de_cliques:
-        pyautogui.rightClick(x, y, duration=0.9)
-        time.sleep(tempo_caminhada)
+        pyautogui.click(x, y, duration=1)
+        time.sleep(3)
+        #if para manutenção dos terrenos
+        # resposta = input("Deseja continuar?")
+        # if resposta == "s":
+        #     print("prosseguindo")
+        #     time.sleep(2)
     pyautogui.press("a")
+    #if para manutenção dos terrenos
+    # resposta = input("Deseja continuar?")
+    # if resposta == "s":
+    #     print("prosseguindo")
+    #     time.sleep(1)
     
 
 #Função Principal Inicialização
@@ -141,8 +156,8 @@ def iniciar_bot():
         #Chama as funções de ações no terreno
 
         #comentado para manutenção
-        #realizar_colheita()
-        #preparar_semente()
+        realizar_colheita()
+        preparar_semente()
         realizar_plantacao(indice)
 
         print(f"TERRENO {num_terreno} FINALIZADO\n")
