@@ -83,11 +83,11 @@ CAMINHOS_DOS_16_TERRENOS = [
 def realizar_colheita():
     print(f"Iniciando Colheita e Montaria no Terreno...")
     
-    # 1. Primeiro ele colhe os 9 slots
+    #Primeiro ele colhe os 9 slots
     with pyautogui.hold('shift'): 
         for x, y in SPOT_COLETA:
-            pyautogui.click(x, y, duration=1)
-            time.sleep(tempo_colheita)
+            pyautogui.click(x, y, duration=0.7)
+            time.sleep(random.uniform(0.8, 1))
     
 #Função de pegar semente
 def preparar_semente():
@@ -104,7 +104,7 @@ def realizar_plantacao(indice_terreno):
     #------Comentado para manutenção------
     for x, y in SPOT_PLANTACAO:
         pyautogui.click(x, y, duration=0.5)
-        time.sleep(random.uniform(1.1, 1.4))
+        time.sleep(random.uniform(1.0, 1.3))
 
     #Ajusta o boneco para pegar a montaria e navegar nos terrenos
     time.sleep(3)
