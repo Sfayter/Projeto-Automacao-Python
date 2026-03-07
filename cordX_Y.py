@@ -1,6 +1,9 @@
 import pyautogui
 import time
 
+
+#Código para identificar a posição X e Y do mouse na tela.
+#Utilizado para encontrar as coordenadas no sistema de coleta automática do automacaocoleta.py.
 try:
     while True:
         #Captura a posição do mouse

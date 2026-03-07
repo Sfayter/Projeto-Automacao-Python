@@ -2,28 +2,21 @@ import pyautogui
 import time
 import random
 
-#Configuração de humanização para randomizar tempo de espera
-#Nota: Randomização fixa, posteriormente, deve-se realizar essa randomização diretamente no código
-tempo_colheita= random.uniform(1.3, 1.6)
-tempo_caminhada = random.uniform(2.5, 3)
-
-
 #Configuração global de segurança
 pyautogui.PAUSE = 0.5
 pyautogui.FAILSAFE = True
 
-# Os 9 slots de colheita
-SPOT_COLETA = [
+#Slots de colheita
+spotColeta = [
     (968, 379), (954, 533), (827, 454),
-    (1083, 472), (1197, 425), 
-    (986, 345),
-    (862, 296), (773, 472), 
-    (650, 577)
+    (1083, 472), (1197, 425), (986, 345),
+    (862, 296), (773, 472), (650, 577)
 ]
 
-#Otimizar esse bloco posteriormente para poupar linhas e melhorar a eficiência
-#Bloco apenas para teste
-POSICAO_MONTARIA = [
+#Posições da montaria
+#Foi necessário definir as coordenadas nesse formato no lugar de um loop com uma coordenada fixa, pois a montaria 
+#varia o posicionamento de acordo com o terreno de colheita
+posicaoMontaria = [
     [(942,829), (966, 400)], #1
     [(942, 825), (986, 409) ], #2
     [(942, 830), (976, 391) ], #3
@@ -42,16 +35,16 @@ POSICAO_MONTARIA = [
     [(942, 829), (983,404) ], #16  
 ]
 
-# Os 9 slots de plantação
-SPOT_PLANTACAO = [
+#Slots de plantação
+spotPlantacao = [
     (817, 522), (941, 645), (1007, 437),
     (1091, 506), (1086, 329), (1191, 409),
     (1340, 514), (1216, 605), (1082, 701)
 ]
 
 # MAPA DE NAVEGAÇÃO
-# Cada sub-lista [ ] contém os cliques necessários para chegar e CENTRALIZAR no terreno
-CAMINHOS_DOS_16_TERRENOS = [
+# Cada sub-lista [ ] contém os cliques necessários para chegar nos terrenos
+caminhosTerrenos = [
     [(967, 249), (974, 227)],# Coordenadas para chegar da posição inicial até o terreno 1
     [(1362, 196), (979, 211)],#, 1 > 2
     [(1568, 310), (1000, 210)],# 2 > 3
@@ -60,14 +53,9 @@ CAMINHOS_DOS_16_TERRENOS = [
     [(1582, 323), (1713, 1079), (1409, 1079), (921, 1079), (1324, 827), (987, 211)], # 5 > 6
     [(1313, 266), (1002, 221)], # 6 > 7
     [(1391, 1079), (1158, 757), (986, 197)], # 7 > 8
-
-    #manutenção realizada nessa coordenada 8 > 9
-    #verificar a colheita daqui em diante para validar se está padrão
     [(1461, 456), (979, 192)], # 8 > 9
-
     [(1322, 1079), (1215, 695), (985, 215)], # 9 > 10
-    [(502, 1075), (1503, 850), (50,856),(989,786),(981, 213)], # 10 > 11 (necessita manutenção)
-
+    [(502, 1075), (1503, 850), (50,856),(989,786),(981, 213)], # 10 > 11
     [(377, 939), (716, 933), (989, 231)], # 11 > 12
     [(68, 679), (962, 232)], # 12 > 13
     [(1919, 530), (1422, 350), (1685, 1079), (1423, 1079), (131, 893), (980, 193)], # 13 > 14
@@ -75,54 +63,52 @@ CAMINHOS_DOS_16_TERRENOS = [
     [(761, 1079), (693, 938), (1139, 872), (980, 218)], # 15 > 16
 ]
 
-
-#Funções de ações
-#Futuramente ajustar essa parte para deixar o código mais organizado e limpo
+#Funções de ação
 
 #Função de colher as plantações
-def realizar_colheita():
-    print(f"Iniciando Colheita e Montaria no Terreno...")
-    
-    #Primeiro ele colhe os 9 slots
+def realizarColheita():
+    print("Iniciando Colheita...")
+
+    #Loop para fazer a colheita utilizando o shift pressionado para uma colheita mais eficiente e rápida.
     with pyautogui.hold('shift'): 
-        for x, y in SPOT_COLETA:
-            pyautogui.click(x, y, duration=0.7)
+        for x, y in spotColeta:
+            pyautogui.click(x, y, duration=0.8)
             time.sleep(random.uniform(0.8, 1))
     
-#Função de pegar semente
-def preparar_semente():
-    time.sleep(3)
+#Função de pegar semente no inventário
+def prepararSemente():
     print(f"Pegando semente no inventário...")
     pyautogui.press("i")
-    pyautogui.click(1676, 540, duration=0.5)
-    pyautogui.click(822, 427, duration=0.5)
+    pyautogui.click(1676, 540, duration=0.6)
+    pyautogui.click(822, 427, duration=0.6)
 
 #Função de plantar as sementes nos 9 slots de cada terreno
-def realizar_plantacao(indice_terreno):
-    print(f"Plantando no terreno {indice_terreno + 1}...")
+def realizarPlantacao(indiceTerreno):
+    print(f"Plantando no terreno {indiceTerreno + 1}...")
     
-    #------Comentado para manutenção------
-    for x, y in SPOT_PLANTACAO:
+    for x, y in spotPlantacao:
         pyautogui.click(x, y, duration=0.5)
         time.sleep(random.uniform(1.0, 1.3))
 
-    #Ajusta o boneco para pegar a montaria e navegar nos terrenos
-    time.sleep(3)
-    passos_montaria = POSICAO_MONTARIA[indice_terreno]
+    #Ajusta o boneco para pegar a montaria na posição correta e navegar nos terrenos
+    time.sleep(random.uniform(0.7, 1))
+    passosMontaria = posicaoMontaria[indiceTerreno]
     
-    print(f"Executando {len(passos_montaria)} para subir na montaria...")
+    print(f"Executando {len(passosMontaria)} para subir na montaria...")
     
-    for x, y in passos_montaria:
-        pyautogui.rightClick(x, y, duration=0.8)
-        time.sleep(random.uniform(2.5, 2.8)) 
+    #Loop para percorrer a lista e sublistas de posicaoMontaria e conseguir subir na montaria na posição correta.
+    for x, y in passosMontaria:
+        pyautogui.rightClick(x, y, duration=0.7)
+        time.sleep(random.uniform(1, 1.4)) 
 
     #Sobe na montaria
     pyautogui.press("a")
-    print("Montagem estabilizada!")
-    time.sleep(random.uniform(0.7, 1.2))
+    time.sleep(random.uniform(0.5, 0.8))
+    #Fecha o inventário aberto pela função prepararSemente
+    #O motivo dele fechar nessa função é devido a dinâmica do jogo, pois se ele fechasse assim que pegasse a semente, ela voltaria para o inventário.
     pyautogui.press("esc")
 
-#Função de caminhar entre os terrenos de acordo com as coordenadas passadas nas listas e sublistas
+#Função de caminhar entre os terrenos de acordo com as coordenadas passadas na lista e sublistas da lista caminhosTerrenos
 def navegar_para_terreno(lista_de_cliques):
     for x, y in lista_de_cliques:
         pyautogui.click(x, y, duration=1)
@@ -131,7 +117,7 @@ def navegar_para_terreno(lista_de_cliques):
         # resposta = input("Deseja continuar?")
         # if resposta == "s":
         #     print("prosseguindo")
-        #     time.sleep(2)
+        #     time.sleep(1)
     pyautogui.press("a")
     #if para manutenção dos terrenos
     # resposta = input("Deseja continuar?")
@@ -142,25 +128,23 @@ def navegar_para_terreno(lista_de_cliques):
 
 #Função Principal Inicialização
 def iniciar_bot():
-    print("O bot começará em 3 segundos. Mude para a janela do jogo!")
+    print("Iniciando em 3 segundos...")
     time.sleep(3)
 
-    # O loop percorre cada terreno da lista de 16
-    for indice, cliques_trajeto in enumerate(CAMINHOS_DOS_16_TERRENOS):
+    #Loop para percorrer nos terrenos
+    for indice, cliques_trajeto in enumerate(caminhosTerrenos):
         num_terreno = indice + 1
-        print(f"INICIANDO TERRENO {num_terreno}")
+        print(f"Iniciando Terreno {num_terreno}")
 
         #Chama função de navegar nos terrenos
         navegar_para_terreno(cliques_trajeto)
-        
-        #Chama as funções de ações no terreno
 
-        #comentado para manutenção
-        realizar_colheita()
-        preparar_semente()
-        realizar_plantacao(indice)
+        #Funções de ação
+        realizarColheita()
+        prepararSemente()
+        realizarPlantacao(indice)
 
-        print(f"TERRENO {num_terreno} FINALIZADO\n")
+        print(f"Terreno {num_terreno} finalizado.\n")
 
     print("Ciclo de 16 terrenos completo!")
 
