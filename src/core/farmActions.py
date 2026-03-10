@@ -18,7 +18,7 @@ def realizarColheita():
 def prepararSemente():
     print(f"Pegando semente no inventário...")
     pyautogui.press("i")
-    pyautogui.click(1676, 540, duration=0.6)
+    pyautogui.click(1737, 540, duration=0.6)
     pyautogui.click(822, 427, duration=0.6)
 
 #Função de plantar as sementes nos 9 slots de cada terreno
