@@ -1,1 +1,0 @@
-# Helpers (randomização, logs, verificações)

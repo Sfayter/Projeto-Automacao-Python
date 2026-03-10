@@ -1,3 +1,5 @@
 anotacoes_projeto.txt
 teste.txt
 app.py
+__pycache__/
+*.pyc

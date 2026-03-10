@@ -127,7 +127,7 @@ def navegar_para_terreno(lista_de_cliques):
     
 
 #Função Principal Inicialização
-def iniciar_bot():
+def iniciarAcoes():
     print("Iniciando em 3 segundos...")
     time.sleep(3)
 
@@ -150,4 +150,4 @@ def iniciar_bot():
 
 #Executa o bot
 if __name__ == "__main__":
-    iniciar_bot()
+    iniciarAcoes()
