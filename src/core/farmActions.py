@@ -12,13 +12,13 @@ def realizarColheita():
     with pyautogui.hold('shift'): 
         for x, y in spotColeta:
             pyautogui.click(x, y, duration=0.8)
-            time.sleep(random.uniform(0.8, 1))
+            time.sleep(random.uniform(0.95, 1.1))
     
 #Função de pegar semente no inventário
 def prepararSemente():
     print(f"Pegando semente no inventário...")
     pyautogui.press("i")
-    pyautogui.click(1737, 540, duration=0.6)
+    pyautogui.click(1676, 540, duration=0.6)
     pyautogui.click(822, 427, duration=0.6)
 
 #Função de plantar as sementes nos 9 slots de cada terreno
@@ -50,5 +50,6 @@ def realizarPlantacao(indiceTerreno):
 def sementeHorta(terrenoAtual):
     print("Pegando Sementes de Dedaleira...")
     if terrenoAtual >= 12 <= 16:
-        pyautogui.click(1676, 540, duration=0.6)
+        pyautogui.press("i")
+        pyautogui.click(1737, 540, duration=0.6)
         pyautogui.click(822, 427, duration=0.6)
