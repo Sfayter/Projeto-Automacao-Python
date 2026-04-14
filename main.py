@@ -1,37 +1,61 @@
 import time
-from src.utils.config import caminhosTerrenos
-from src.core.farmActions import realizarColheita, prepararSemente, realizarPlantacao, sementeHorta
-from src.navigation.movement import navegarTerreno
+from src.utils.config import caminhosTerrenos, caminhosIlhas
+from src.core.farmActions import pegarItens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardarItens, viajarIlha, posicionarIlha
+from src.navigation.movement import navegarTerreno, navegarIlha
 
 #Função Principal de Inicialização
 #Responsável por chamar as funções na ordem correta
 def iniciarAcoes():
-    opcao = int(input(" 1- Colher Abóbora\n 2- Colher Leite de Vaca\n 3- Colher Hortaliças\n"))
+
+    #Ajustar a troca de semente, pois com a automatização da troca de ilhas, agora o script não identifica se está na ilha 1 ou 3
+
+    #opcao = int(input(" 1- Colher Abóbora\n 2- Colher Leite de Vaca\n 3- Colher Hortaliças\n"))
     print("Iniciando em 3 segundos...")
     time.sleep(3)
 
     #Loop para percorrer nos terrenos
-    for indice, cliques_trajeto in enumerate(caminhosTerrenos):
-        numTerreno = indice + 1
-        print(f"Iniciando Terreno {numTerreno}")
+    for i in range(2):
+        for indice, cliques_trajeto in enumerate(caminhosTerrenos):
+            numTerreno = indice + 1
+            print(f"Iniciando processo/terreno {numTerreno}")
 
-        #Chama função de navegar nos terrenos
-        navegarTerreno(cliques_trajeto)
+            #Chama função de navegar nos terrenos
 
-        #Funções de ação
-        realizarColheita()
+            navegarTerreno(cliques_trajeto)
 
-        #Estrutura de decisão necessária para fazer a troca de semente de acordo com o número do terreno na fazenda 3
-        if 12 <= numTerreno <= 16 and opcao == 3:
-            sementeHorta(numTerreno)
-        else:
-            prepararSemente()
+            #Funções de ação
 
-        realizarPlantacao(indice)
-        print(f"Terreno {numTerreno} finalizado.\n")
-        
-    print("Ciclo de 16 terrenos completo!")
+            realizarColheita()
 
+            #Estrutura de decisão necessária para fazer a troca de semente de acordo com o número do terreno na fazenda 3
+
+            if 12 <= numTerreno <= 16 and i == 1:
+                sementeHorta(numTerreno)
+            else:
+                prepararSemente()
+
+            realizarPlantacao(indice)
+            print(f"Terreno {numTerreno} finalizado.\n")
+            
+        print("Ciclo de 16 terrenos completo!")
+
+        #Loop para guardar itens coletados e viajar entre as ilhas
+        if i == 0:
+            for indice, cliques_trajeto in enumerate(caminhosIlhas):
+                quantidade = indice + 1
+                navegarIlha(cliques_trajeto, descerMontaria=5 if indice == 0 else None)
+                if quantidade == 1:
+                    guardarItens()
+                elif quantidade == 2:
+                    print("Viajando para a ilha 3...")
+                    time.sleep(3)
+                    viajarIlha()
+                    time.sleep(12)
+            #Funções para pegar itens e posicionar o personagem na ilha 3 para realizar o processo de colheita e plantação.
+            time.sleep(1.5)
+            pegarItens()
+            posicionarIlha()
+    
 #Executa o bot
 if __name__ == "__main__":
     iniciarAcoes()
