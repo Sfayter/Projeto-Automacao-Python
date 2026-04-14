@@ -1,7 +1,9 @@
 import pyautogui
 import time
 import random
-from src.utils.config import spotColeta, spotPlantacao, posicaoMontaria
+from src.utils.config import spotColeta, spotPlantacao, posicaoMontaria, slotItens, posicionamentoIlha
+
+pyautogui.FAILSAFE = True
 
 #Funções de ação
 #Função de colher as plantações
@@ -44,7 +46,8 @@ def realizarPlantacao(indiceTerreno):
     pyautogui.press("a")
     time.sleep(random.uniform(0.5, 0.8))
     #Fecha o inventário aberto pela função prepararSemente
-    #O motivo dele fechar nessa função é devido a dinâmica do jogo, pois se ele fechasse assim que pegasse a semente, ela voltaria para o inventário.
+    #O motivo dele fechar nessa função é devido a dinâmica do jogo, pois se ele fechasse assim que pegasse a semente
+    #ela voltaria para o inventário.
     pyautogui.press("esc")
 
 def sementeHorta(terrenoAtual):
@@ -53,3 +56,41 @@ def sementeHorta(terrenoAtual):
         pyautogui.press("i")
         pyautogui.click(1737, 540, duration=0.6)
         pyautogui.click(822, 427, duration=0.6)
+
+def guardarItens():
+    print("Guardando itens...")
+    for i in range(0, len(slotItens), 2):
+        x1, y1 = slotItens[i]
+        x2, y2 = slotItens[i+1]
+        pyautogui.moveTo(x1, y1, duration=0.8)
+        pyautogui.dragTo(x2, y2, duration=0.8)
+        time.sleep(random.uniform(0.5, 0.8))
+
+def pegarItens():
+    print("Pegando itens...")
+    for i in range(1, len(slotItens), 2):
+        x1, y1 = slotItens[i]
+        x2, y2 = slotItens[i-1]
+        pyautogui.moveTo(x1, y1, duration=0.9)
+        pyautogui.dragTo(x2, y2, duration=0.9)
+        time.sleep(random.uniform(0.5, 0.8))
+        
+
+def viajarIlha():
+     pyautogui.click(170, 357, duration=0.7)
+     pyautogui.moveTo(166,396, duration=0.7)
+     pyautogui.moveTo(360, 396, duration=1)
+     pyautogui.click(357, 435, duration=0.7)
+     pyautogui.click(231, 785, duration=0.8)
+
+def posicionarIlha():
+    print("Posicionando personagem na ilha...")
+    pyautogui.press("a")
+    time.sleep(random.uniform(5, 5.7))
+    pyautogui.press("esc")
+    time.sleep(0.6)
+    for x, y in posicionamentoIlha:
+        pyautogui.click(x, y, duration=0.8)
+        time.sleep(random.uniform(3, 3.5))
+
+    
