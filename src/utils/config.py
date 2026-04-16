@@ -13,7 +13,7 @@ spotColeta = [
 
 #Slot dos baús para guardar itens e pegar itens
 slotItens = [
-    (1676, 540), (63, 404),      #Guardar semente do slot 1
+    (1676, 540), (63, 404),       #Guardar semente do slot 1
     (1735, 539), (124, 404),      #Guardar abóbora do slot 2
     (1795, 540), (182, 404),      #3
     (1854, 541), (243, 404),      #4
@@ -73,9 +73,9 @@ caminhosTerrenos = [
 caminhosIlhas = [
     [(1016, 0), (303, 0), (0, 176), (697, 214), (1111, 338)],                       #Caminha até o baú
     [(809, 1045), (344, 937), (748, 477)],                                          #Caminha até o viajante
-    [(1555, 79), (1022, 207)],                                                      #Pegar montaria e semente na ilha 3
+    [(1555, 79), (1022, 207)],                                                      #Pegar montaria e semente na ilha 2
 ]
 
 posicionamentoIlha = [
-    (0, 897), (743, 756), (966, 895)
+    (0, 897), (743, 756), (966, 895)                                                #Caminha para o ponto inicial de colheita e plantação da ilha 2
 ]
