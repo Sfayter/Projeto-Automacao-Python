@@ -22,17 +22,21 @@ Humanização: Intervalos de tempo aleatórios (random.uniform) em todas as aç�
 
 [x] Lógica de randomização de milissegundos.
 
-[x] Mapeamento de coordenadas dos terrenos da primeira fazenda.
+[x] Mapeamento de coordenadas dos terrenos da primeira e segunda fazenda.
 
 [x] Sistema de correção de ângulo da montaria (Ponto de Reset).
 
 [x] Função de plantação.
 
-[x] Função de navegação entre Terrenos na 1º fazenda.
+[x] Função de navegação entre Terrenos na 1º e 2º fazenda.
 
 [x] Função para identificar Coordenadas X e Y na tela.
 
-[x] Implementar condição para trocar tipo de semente de acordo com o terreno na 3º fazenda.
+[x] Implementar condição para trocar tipo de semente de acordo com o terreno na 2º fazenda.
+
+[x] Função para navegar até o sistema de armazenamento e guardar itens colhidos da 1º fazenda.
+
+[x] Função para navegar até a 2º fazenda, pegar montaria, semente e posicionar no ponto de colheita.
 
 🚧 Em Desenvolvimento (Pendente)
 

@@ -6,10 +6,6 @@ from src.navigation.movement import navegarTerreno, navegarIlha
 #Função Principal de Inicialização
 #Responsável por chamar as funções na ordem correta
 def iniciarAcoes():
-
-    #Ajustar a troca de semente, pois com a automatização da troca de ilhas, agora o script não identifica se está na ilha 1 ou 3
-
-    #opcao = int(input(" 1- Colher Abóbora\n 2- Colher Leite de Vaca\n 3- Colher Hortaliças\n"))
     print("Iniciando em 3 segundos...")
     time.sleep(3)
 
@@ -20,15 +16,12 @@ def iniciarAcoes():
             print(f"Iniciando processo/terreno {numTerreno}")
 
             #Chama função de navegar nos terrenos
-
             navegarTerreno(cliques_trajeto)
 
             #Funções de ação
-
             realizarColheita()
 
-            #Estrutura de decisão necessária para fazer a troca de semente de acordo com o número do terreno na fazenda 3
-
+            #Estrutura de decisão necessária para fazer a troca de semente de acordo com o número do terreno na fazenda 2
             if 12 <= numTerreno <= 16 and i == 1:
                 sementeHorta(numTerreno)
             else:
