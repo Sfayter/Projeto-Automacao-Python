@@ -1,6 +1,6 @@
 import time
-from src.utils.config import caminhosTerrenos, caminhosIlhas
-from src.core.farmActions import pegarItens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardarItens, viajarIlha, posicionarIlha
+from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas
+from src.core.farmActions import pegarItens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardarItens, viajar_ilha, posicionarIlha
 from src.navigation.movement import navegarTerreno, navegarIlha
 
 #Função Principal de Inicialização
@@ -33,18 +33,18 @@ def iniciarAcoes():
         print("Ciclo de 16 terrenos completo!")
 
         #Loop para guardar itens coletados e viajar entre as ilhas
-        if i == 0:
+        if i <= 1:
             for indice, cliques_trajeto in enumerate(caminhosIlhas):
                 quantidade = indice + 1
                 navegarIlha(cliques_trajeto, descerMontaria=5 if indice == 0 else None)
                 if quantidade == 1:
                     guardarItens()
                 elif quantidade == 2:
-                    print("Viajando para a ilha 3...")
+                    print("Viajando entre ilhas...")
                     time.sleep(3)
-                    viajarIlha()
+                    viajar_ilha(ilhas[i])
                     time.sleep(12)
-            #Funções para pegar itens e posicionar o personagem na ilha 3 para realizar o processo de colheita e plantação.
+            #Funções para pegar itens e posicionar o personagem na ilha 2 para realizar o processo de colheita e plantação.
             time.sleep(1.5)
             pegarItens()
             posicionarIlha()
