@@ -11,24 +11,24 @@ def iniciarAcoes():
 
     #Loop para percorrer nos terrenos
     for i in range(2):
-        #for indice, cliques_trajeto in enumerate(caminhosTerrenos):
-            #numTerreno = indice + 1
-            #print(f"Iniciando processo/terreno {numTerreno}")
+        for indice, cliques_trajeto in enumerate(caminhosTerrenos):
+            numTerreno = indice + 1
+            print(f"Iniciando processo/terreno {numTerreno}")
 
             #Chama função de navegar nos terrenos
-            #navegarTerreno(cliques_trajeto)
+            navegarTerreno(cliques_trajeto)
 
             #Funções de ação
-            #realizarColheita()
+            realizarColheita()
 
             #Estrutura de decisão necessária para fazer a troca de semente de acordo com o número do terreno na fazenda 2
-            #if 12 <= numTerreno <= 16 and i == 1:
-                #sementeHorta(numTerreno)
-            #else:
-                #prepararSemente()
+            if 12 <= numTerreno <= 16 and i == 1:
+                sementeHorta(numTerreno)
+            else:
+                prepararSemente()
 
-            #realizarPlantacao(indice)
-            #print(f"Terreno {numTerreno} finalizado.\n")
+            realizarPlantacao(indice)
+            print(f"Terreno {numTerreno} finalizado.\n")
             
         print("Ciclo de 16 terrenos completo!")
 
@@ -37,10 +37,10 @@ def iniciarAcoes():
             for indice, cliques_trajeto in enumerate(caminhosIlhas):
                 quantidade = indice + 1
                 navegarIlha(cliques_trajeto, descerMontaria=5 if indice == 0 else None)
-                if quantidade == 5:
+                if quantidade == 1:
                     guardarItens()
-                elif quantidade == 1:
-                    print("Viajando para a ilha 2...")
+                elif quantidade == 2:
+                    print("Viajando entre ilhas...")
                     time.sleep(3)
                     viajar_ilha(ilhas[i])
                     time.sleep(12)
