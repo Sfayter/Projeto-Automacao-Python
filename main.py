@@ -1,6 +1,6 @@
 import time
 from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas
-from src.core.farmActions import pegarItens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardarItens, viajar_ilha, posicionarIlha
+from src.core.farmActions import pegar_itens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardar_itens, viajar_ilha, posicionarIlha
 from src.navigation.movement import navegarTerreno, navegarIlha
 
 #Função Principal de Inicialização
@@ -38,7 +38,7 @@ def iniciarAcoes():
                 quantidade = indice + 1
                 navegarIlha(cliques_trajeto, descerMontaria=5 if indice == 0 else None)
                 if quantidade == 1:
-                    guardarItens()
+                    guardar_itens()
                 elif quantidade == 2:
                     print("Viajando entre ilhas...")
                     time.sleep(3)
@@ -46,7 +46,7 @@ def iniciarAcoes():
                     time.sleep(12)
             #Funções para pegar itens e posicionar o personagem na ilha 2 para realizar o processo de colheita e plantação.
             time.sleep(1.5)
-            pegarItens()
+            pegar_itens()
             posicionarIlha()
     
 #Executa o bot
