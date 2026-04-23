@@ -4,8 +4,8 @@ import pyautogui
 pyautogui.PAUSE = 0.5
 pyautogui.FAILSAFE = True
 
-#Slots de colheita
-spotColeta = [
+
+spots_colheita = [
     (968, 379), (954, 533), (827, 454),
     (1083, 472), (1205, 392), (986, 345),
     (862, 296), (773, 472), (650, 577)

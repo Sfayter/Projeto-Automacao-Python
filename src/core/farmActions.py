@@ -1,20 +1,20 @@
 import pyautogui
 import time
 import random
-from src.utils.config import spotColeta, spotPlantacao, posicaoMontaria, slotItens, posicionamentoIlha
+from src.utils.config import spots_colheita, spotPlantacao, posicaoMontaria, slotItens, posicionamentoIlha
 
 pyautogui.FAILSAFE = True
 
-#Funções de ação
-#Função de colher as plantações
 def realizarColheita():
     print("Iniciando Colheita...")
-
-    #Loop para fazer a colheita utilizando o shift pressionado para uma colheita mais eficiente e rápida.
     with pyautogui.hold('shift'): 
-        for x, y in spotColeta:
-            pyautogui.click(x, y, duration=0.8)
-            time.sleep(random.uniform(0.95, 1.1))
+        for coletarTerreno, (x, y) in enumerate(spots_colheita):
+            pyautogui.click(x, y, duration=0.4)
+            if coletarTerreno in [0, 1, 2, 3, 5, 7]:
+                time.sleep(0.1)
+            else:
+                time.sleep(0.35)
+            
     
 #Função de pegar semente no inventário
 def prepararSemente():
