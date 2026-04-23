@@ -28,8 +28,8 @@ def realizarPlantacao(indiceTerreno):
     print(f"Plantando no terreno {indiceTerreno + 1}...")
     
     for x, y in spotPlantacao:
-        pyautogui.click(x, y, duration=0.5)
-        time.sleep(random.uniform(1.0, 1.3))
+        pyautogui.click(x, y, duration=0.3)
+        time.sleep(0.6)
 
     #Ajusta o boneco para pegar a montaria na posição correta e navegar nos terrenos
     time.sleep(random.uniform(0.7, 1))
@@ -80,7 +80,6 @@ def viajarIlha():
      pyautogui.click(170, 357, duration=0.7)
      pyautogui.moveTo(166,396, duration=0.7)
      pyautogui.moveTo(360, 396, duration=1)
-     pyautogui.click(357, 435, duration=0.7)
      pyautogui.click(231, 785, duration=0.8)
 
 def posicionarIlha():

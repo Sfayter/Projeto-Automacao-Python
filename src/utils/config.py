@@ -79,3 +79,8 @@ caminhosIlhas = [
 posicionamentoIlha = [
     (0, 897), (743, 756), (966, 895)                                                #Caminha para o ponto inicial de colheita e plantação da ilha 2
 ]
+
+ilhas = {
+    [(357, 435)],
+    [(231, 785)]
+}

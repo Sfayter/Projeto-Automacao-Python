@@ -40,11 +40,11 @@ def iniciarAcoes():
                 if quantidade == 1:
                     guardarItens()
                 elif quantidade == 2:
-                    print("Viajando para a ilha 3...")
+                    print("Viajando para a ilha 2...")
                     time.sleep(3)
                     viajarIlha()
                     time.sleep(12)
-            #Funções para pegar itens e posicionar o personagem na ilha 3 para realizar o processo de colheita e plantação.
+            #Funções para pegar itens e posicionar o personagem na ilha 2 para realizar o processo de colheita e plantação.
             time.sleep(1.5)
             pegarItens()
             posicionarIlha()
