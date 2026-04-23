@@ -12,12 +12,14 @@ spots_colheita = [
 ]
 
 #Slot dos baús para guardar itens e pegar itens
-slotItens = [
+slot_itens = [
     (1676, 540), (63, 404),       #Guardar semente do slot 1
     (1735, 539), (124, 404),      #Guardar abóbora do slot 2
     (1795, 540), (182, 404),      #3
     (1854, 541), (243, 404),      #4
     (1771, 454), (299, 404),      #5 Guardar montaria
+    (1676, 602), (63, 466),       #Guardar itens do slot 5 do inventário
+    (1735, 602), (124, 466),      #Guardar itens do slot 6 do inventário
 ]
 
 #Posições da montaria
