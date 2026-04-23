@@ -71,7 +71,7 @@ caminhosTerrenos = [
 ]
 
 caminhosIlhas = [
-    [(1016, 0), (303, 0), (0, 176), (697, 214), (1111, 338)],                       #Caminha até o baú
+    #[(1016, 0), (303, 0), (0, 176), (697, 214), (1111, 338)],                       #Caminha até o baú
     [(809, 1045), (344, 937), (748, 477)],                                          #Caminha até o viajante
     [(1555, 79), (1022, 207)],                                                      #Pegar montaria e semente na ilha 2
 ]
@@ -80,7 +80,7 @@ posicionamentoIlha = [
     (0, 897), (743, 756), (966, 895)                                                #Caminha para o ponto inicial de colheita e plantação da ilha 2
 ]
 
-ilhas = {
-    [(357, 435)],
-    [(231, 785)]
-}
+ilhas = [
+    (357, 435),                                                                   #Seleciona a ilha de Thetford
+    (231, 785)                                                                    #Seleciona a ilha de Martlock
+]

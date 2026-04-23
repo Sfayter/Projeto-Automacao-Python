@@ -76,11 +76,15 @@ def pegarItens():
         time.sleep(random.uniform(0.5, 0.8))
         
 
-def viajarIlha():
-     pyautogui.click(170, 357, duration=0.7)
-     pyautogui.moveTo(166,396, duration=0.7)
-     pyautogui.moveTo(360, 396, duration=1)
-     pyautogui.click(231, 785, duration=0.8)
+def viajar_ilha(coordenadas_ilha):
+    pyautogui.click(170, 357, duration=0.7)
+    pyautogui.moveTo(166,396, duration=0.7)
+    pyautogui.moveTo(360, 396, duration=1)
+    if coordenadas_ilha:
+        x, y = coordenadas_ilha
+        pyautogui.click(x, y, duration=0.8)
+        time.sleep(random.uniform(3, 4.5))
+    pyautogui.click(231, 785, duration=0.8)
 
 def posicionarIlha():
     print("Posicionando personagem na ilha...")
