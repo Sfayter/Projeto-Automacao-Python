@@ -22,11 +22,11 @@ slot_itens = [
     (1735, 602), (124, 466),      #Guardar itens do slot 6 do inventário
 ]
 
-#Posições da montaria
+
 #Foi necessário definir as coordenadas nesse formato no lugar de um loop com uma coordenada fixa, pois a montaria 
 #varia o posicionamento de acordo com o terreno de colheita
 posicaoMontaria = [
-    [(942,829), (966, 400)],    #1
+    [(942,829), (966, 400)],   #1
     [(942, 825), (986, 409)],  #2
     [(942, 830), (976, 391)],  #3
     [(942, 829), (989, 408)],  #4
@@ -45,10 +45,10 @@ posicaoMontaria = [
 ]
 
 #Slots de plantação
-spotPlantacao = [
+spots_plantacao = [
     (817, 522), (941, 645), (1007, 437),
     (1091, 506), (1086, 329), (1191, 409),
-    (1340, 514), (1216, 605), (1082, 701)
+    (1340, 514), (1216, 605), (1084, 895)
 ]
 
 # MAPA DE NAVEGAÇÃO

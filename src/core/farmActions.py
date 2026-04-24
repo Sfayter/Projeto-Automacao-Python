@@ -1,7 +1,5 @@
-import pyautogui
-import time
-import random
-from src.utils.config import spots_colheita, spotPlantacao, posicaoMontaria, slot_itens, posicionamentoIlha
+import pyautogui, time, random
+from src.utils.config import spots_colheita, spots_plantacao, posicaoMontaria, slot_itens, posicionamentoIlha
 
 pyautogui.FAILSAFE = True
 
@@ -23,11 +21,11 @@ def prepararSemente():
     pyautogui.click(1676, 540, duration=0.6)
     pyautogui.click(822, 427, duration=0.6)
 
-#Função de plantar as sementes nos 9 slots de cada terreno
+
 def realizarPlantacao(indiceTerreno):
     print(f"Plantando no terreno {indiceTerreno + 1}...")
     
-    for x, y in spotPlantacao:
+    for x, y in spots_plantacao:
         pyautogui.click(x, y, duration=0.3)
         time.sleep(0.6)
 
