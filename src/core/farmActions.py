@@ -26,7 +26,7 @@ def realizarPlantacao(indiceTerreno):
     print(f"Plantando no terreno {indiceTerreno + 1}...")
     
     for x, y in spots_plantacao:
-        pyautogui.click(x, y, duration=0.3)
+        pyautogui.click(x, y, duration=0.5)
         time.sleep(0.6)
 
     #Ajusta o boneco para pegar a montaria na posição correta e navegar nos terrenos
