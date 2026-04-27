@@ -1,5 +1,4 @@
-import pyautogui
-import time
+import pyautogui, time
 
 #Função de caminhar entre os terrenos de acordo com as coordenadas passadas na lista e sublistas da lista caminhosTerrenos
 def navegarTerreno(listaCliques):
