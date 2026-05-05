@@ -1,5 +1,5 @@
 import pyautogui, time, random
-from src.utils.config import spots_colheita, spots_plantacao, posicaoMontaria, slot_itens, posicionamentoIlha
+from src.utils.config import spots_colheita, spots_plantacao, posicaoMontaria, slot_itens, posicionamentoIlha, spots_ordenha, spots_alimentacao
 
 pyautogui.FAILSAFE = True
 
@@ -93,4 +93,18 @@ def posicionarIlha():
         pyautogui.click(x, y, duration=0.8)
         time.sleep(random.uniform(3, 3.5))
 
-    
+def ordenhar():
+    for ordenhar_animais, (x, y) in enumerate(spots_ordenha):
+        with pyautogui.hold('shift'):
+            pyautogui.click(x, y, duration=0.4)
+            if ordenhar_animais in [0, 4, 6, 8]:
+                time.sleep(0.1)
+
+def alimentar():
+    for alimentar_animais, (x, y) in enumerate(spots_alimentacao):
+        with pyautogui.hold('shift'):
+            pyautogui.click(x, y, duration=0.5)
+            if alimentar_animais in [0, 4, 6, 8]:
+                time.sleep(0.65)
+    pyautogui.press("a")
+    time.sleep(1.5)
