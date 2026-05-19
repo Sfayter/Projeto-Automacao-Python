@@ -1,6 +1,6 @@
 import time
-from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas
-from src.core.farmActions import pegar_itens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardar_itens, viajar_ilha, posicionarIlha
+from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas, terrenos_fazenda3
+from src.core.farmActions import pegar_itens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardar_itens, viajar_ilha, posicionarIlha, ordenhar, alimentar
 from src.navigation.movement import navegarTerreno, navegarIlha
 
 #Função Principal de Inicialização
@@ -17,7 +17,7 @@ def iniciarAcoes():
                 print(f"Iniciando processo/terreno {numTerreno}")
 
                 #Chama função de navegar nos terrenos
-                navegarTerreno(cliques_trajeto)
+                navegarTerreno(cliques_trajeto, ilha)
 
                 #Funções de ação
                 realizarColheita()
@@ -50,7 +50,12 @@ def iniciarAcoes():
                 pegar_itens()
                 posicionarIlha()
         else:
-            print("Iniciando processo na ilha 3...")
+            for terreno, posicoes_ate_terreno in enumerate(terrenos_fazenda3):
+                print(f"Iniciando navegação até o terreno {terreno + 1}")
+                navegarTerreno(posicoes_ate_terreno, ilha)
+                ordenhar()
+                alimentar()
+                
             
     
 #Executa o bot

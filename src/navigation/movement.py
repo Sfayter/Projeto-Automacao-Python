@@ -1,11 +1,15 @@
 import pyautogui, time
 
 #Função de caminhar entre os terrenos de acordo com as coordenadas passadas na lista e sublistas da lista caminhosTerrenos
-def navegarTerreno(listaCliques):
+def navegarTerreno(listaCliques, ilha=None):
 
     for x, y in listaCliques:
-        pyautogui.click(x, y, duration=1)
-        time.sleep(3.3)
+        if ilha < 2:
+            pyautogui.click(x, y, duration=1)
+            time.sleep(3.3)
+        else:
+            pyautogui.rightClick(x, y, duration=0.5)
+            time.sleep(3.3)
         #if para manutenção dos terrenos
         # resposta = input("Deseja continuar?")
         # if resposta == "s":
