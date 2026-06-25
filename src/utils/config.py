@@ -83,8 +83,8 @@ posicionamentoIlha = [
 ]
 
 ilhas = [
-    (357, 435),                                                                     #Seleciona a ilha de Thetford
-    (357, 435)                                                                      #Seleciona a ilha de Martlock
+    (357, 459),                                                                     #Seleciona a ilha de Thetford
+    (357, 456)                                                                      #Seleciona a ilha de Martlock
 ]
 
 terrenos_fazenda3 = [
