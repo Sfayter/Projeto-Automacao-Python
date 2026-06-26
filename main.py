@@ -1,5 +1,5 @@
 import time
-from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas, terrenos_fazenda3
+from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas, terrenos_fazenda3, caminhos_ilha3
 from src.core.farmActions import pegar_itens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardar_itens, viajar_ilha, posicionarIlha, ordenhar, alimentar
 from src.navigation.movement import navegarTerreno, navegarIlha
 
@@ -55,6 +55,16 @@ def iniciarAcoes():
                 navegarTerreno(posicoes_ate_terreno, ilha)
                 ordenhar()
                 alimentar()
+            navegarIlha(caminhos_ilha3, descerMontaria=7 if terreno == 0 else None)
+            guardar_itens()
+
+            for indice, cliques_trajeto in enumerate(caminhosIlhas):
+            viajar_ilha(ilhas[ilha])
+            time.sleep(12)
+            pegar_itens()
+
+
+
                 
             
     
