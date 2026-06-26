@@ -49,25 +49,16 @@ def iniciarAcoes():
                 time.sleep(1.5)
                 pegar_itens()
                 posicionarIlha()
-        else:
+                
+        elif ilha == 2:
             for terreno, posicoes_ate_terreno in enumerate(terrenos_fazenda3):
                 print(f"Iniciando navegação até o terreno {terreno + 1}")
                 navegarTerreno(posicoes_ate_terreno, ilha)
                 ordenhar()
                 alimentar()
-            navegarIlha(caminhos_ilha3, descerMontaria=7 if terreno == 0 else None)
+            navegarIlha(caminhos_ilha3, descerMontaria=7)
             guardar_itens()
 
-            for indice, cliques_trajeto in enumerate(caminhosIlhas):
-            viajar_ilha(ilhas[ilha])
-            time.sleep(12)
-            pegar_itens()
-
-
-
-                
-            
-    
 #Executa o bot
 if __name__ == "__main__":
     iniciarAcoes()
