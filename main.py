@@ -59,6 +59,15 @@ def iniciarAcoes():
             navegarIlha(caminhos_ilha3, descerMontaria=7)
             guardar_itens()
 
+            for indice, cliques_trajeto in enumerate(caminhosIlhas[1:]):
+                navegarIlha(cliques_trajeto, descerMontaria=None)
+                if indice == 0:
+                    viajar_ilha(ilhas[ilha])
+                    time.sleep(12)
+            pegar_itens()
+        
+        
+
 #Executa o bot
 if __name__ == "__main__":
     iniciarAcoes()
