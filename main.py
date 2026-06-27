@@ -1,5 +1,5 @@
 import time
-from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas, terrenos_fazenda3
+from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas, terrenos_fazenda3, caminhos_ilha3
 from src.core.farmActions import pegar_itens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardar_itens, viajar_ilha, posicionarIlha, ordenhar, alimentar
 from src.navigation.movement import navegarTerreno, navegarIlha
 
@@ -49,15 +49,25 @@ def iniciarAcoes():
                 time.sleep(1.5)
                 pegar_itens()
                 posicionarIlha()
-        else:
+                
+        elif ilha == 2:
             for terreno, posicoes_ate_terreno in enumerate(terrenos_fazenda3):
                 print(f"Iniciando navegação até o terreno {terreno + 1}")
                 navegarTerreno(posicoes_ate_terreno, ilha)
                 ordenhar()
                 alimentar()
-                
-            
-    
+            navegarIlha(caminhos_ilha3, descerMontaria=7)
+            guardar_itens()
+
+            for indice, cliques_trajeto in enumerate(caminhosIlhas[1:]):
+                navegarIlha(cliques_trajeto, descerMontaria=None)
+                if indice == 0:
+                    viajar_ilha(ilhas[ilha])
+                    time.sleep(12)
+            pegar_itens()
+        
+        
+
 #Executa o bot
 if __name__ == "__main__":
     iniciarAcoes()
