@@ -50,7 +50,7 @@ def realizarPlantacao(indiceTerreno):
 
 def sementeHorta(terrenoAtual):
     print("Pegando Sementes de Dedaleira...")
-    if terrenoAtual >= 12 <= 16:
+    if terrenoAtual >= 11 <= 16:
         pyautogui.press("i")
         pyautogui.click(1737, 540, duration=0.6)
         pyautogui.click(822, 427, duration=0.6)

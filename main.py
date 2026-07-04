@@ -23,7 +23,7 @@ def iniciarAcoes():
                 realizarColheita()
 
                 #Estrutura de decisão necessária para fazer a troca de semente de acordo com o número do terreno na fazenda 2
-                if 12 <= numTerreno <= 16 and ilha == 1:
+                if 11 <= numTerreno <= 16 and ilha == 1:
                     sementeHorta(numTerreno)
                 else:
                     prepararSemente()
