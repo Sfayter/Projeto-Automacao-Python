@@ -75,7 +75,7 @@ caminhosTerrenos = [
 caminhosIlhas = [
     [(1016, 0), (303, 0), (0, 176), (697, 214), (1111, 338)],                       #Caminha até o baú
     [(809, 1045), (344, 937), (748, 477)],                                          #Caminha até o viajante
-    [(1555, 79), (1022, 207)],                                                      #Pegar montaria e semente na ilha 2
+    [(1555, 79), (1022, 207)],                                                      #Pegar montaria, semente e abóbora
 ]
 
 posicionamentoIlha = [
@@ -84,7 +84,8 @@ posicionamentoIlha = [
 
 ilhas = [
     (357, 459),                                                                     #Seleciona a ilha de Thetford
-    (357, 456)                                                                      #Seleciona a ilha de Martlock
+    (357, 456),                                                                     #Seleciona a ilha de Martlock
+    (358, 398)                                                                      #Seleciona a ilha de Brecillien
 ]
 
 terrenos_fazenda3 = [
@@ -116,4 +117,8 @@ spots_alimentacao = [
     (950, 664), (1086, 515), (950, 392), 
     (839, 491), (1090, 347), (1141, 492), 
     (1214, 611), (928, 658), (792, 702)
+]
+
+caminhos_ilha3 = [
+    (812, 78), (1098, 265), (460, 0), (696, 215), (0, 761), (541, 19), (1138, 363)
 ]
