@@ -10,7 +10,7 @@ def iniciarAcoes():
     time.sleep(3)
 
     #Loop para percorrer nos terrenos
-    for ilha in range(2, 3):
+    for ilha in range(3):
         if ilha < 2:
             for indice, cliques_trajeto in enumerate(caminhosTerrenos):
                 numTerreno = indice + 1
