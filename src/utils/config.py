@@ -75,7 +75,8 @@ caminhosTerrenos = [
 caminhosIlhas = [
     [(1016, 0), (303, 0), (0, 176), (697, 214), (1111, 338)],                       #Caminha até o baú
     [(809, 1045), (344, 937), (748, 477)],                                          #Caminha até o viajante
-    [(1555, 79), (1022, 207)],                                                      #Pegar montaria, semente e abóbora
+    [(1555, 79), (1022, 207)],                                                      #Pegar montaria, semente e abóbora - Fazenda 1, 2 e 3
+    [(1703, 85), (1244, 63), (1135, 185)]                                           #Pegar montaria e milho - Fazenda 4
 ]
 
 posicionamentoIlha = [
