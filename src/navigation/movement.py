@@ -23,7 +23,10 @@ def navegarIlha(listaCliques, descerMontaria=None):
     for x, y in listaCliques:
         indice += 1
         pyautogui.click(x, y, duration=1)
-        time.sleep(3.9)
+        if indice == 1:
+            time.sleep(4.3)
+        else:
+            time.sleep(3.9)
         # resposta = input("Deseja continuar?")
         # if resposta == "s":
         #      print("prosseguindo")
