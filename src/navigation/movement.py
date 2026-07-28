@@ -4,7 +4,7 @@ import pyautogui, time
 def navegarTerreno(listaCliques, ilha=None):
 
     for x, y in listaCliques:
-        if ilha < 2:
+        if ilha < 2 or ilha == 3:
             pyautogui.click(x, y, duration=1)
             time.sleep(3.3)
         else:

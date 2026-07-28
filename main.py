@@ -10,7 +10,7 @@ def iniciarAcoes():
     time.sleep(3)
 
     #Loop para percorrer nos terrenos
-    for ilha in range(3):
+    for ilha in range(2, 4):
         if ilha < 2:
             for indice, cliques_trajeto in enumerate(caminhosTerrenos):
                 numTerreno = indice + 1
@@ -35,7 +35,7 @@ def iniciarAcoes():
 
             #Loop para guardar itens coletados e viajar entre as ilhas
             if ilha <= 1:
-                for indice, cliques_trajeto in enumerate(caminhosIlhas):
+                for indice, cliques_trajeto in enumerate(caminhosIlhas[:-1]):
                     quantidade = indice + 1
                     navegarIlha(cliques_trajeto, descerMontaria=5 if indice == 0 else None)
                     if quantidade == 1:
@@ -69,6 +69,7 @@ def iniciarAcoes():
                     viajar_ilha(ilhas[ilha])
                     time.sleep(12)
             pegar_itens()
+            posicionarIlha(ilha)
         
         
 

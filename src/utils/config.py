@@ -80,7 +80,8 @@ caminhosIlhas = [
 ]
 
 posicionamentoIlha = [
-    (0, 897), (743, 756), (966, 895)                                                #Caminha para o ponto inicial de colheita e plantação da ilha 2
+    (0, 897), (743, 756), (966, 895),                                               #Caminha para o ponto inicial de colheita e plantação nas ilhas 2, 3
+    (1622, 570), (1113, 712)
 ]
 
 ilhas = [
