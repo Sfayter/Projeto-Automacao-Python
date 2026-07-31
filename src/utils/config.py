@@ -81,7 +81,7 @@ caminhosIlhas = [
 
 posicionamentoIlha = [
     (0, 897), (743, 756), (966, 895),                                               #Caminha para o ponto inicial de colheita e plantação nas ilhas 2, 3
-    (1622, 570), (1113, 712)
+    (1622, 570), (1113, 712)                                                        #Caminha para o ponto inicial na ilha 4
 ]
 
 ilhas = [
@@ -123,4 +123,14 @@ spots_alimentacao = [
 
 caminhos_ilha3 = [
     (812, 78), (1098, 265), (460, 0), (696, 215), (0, 761), (541, 19), (1138, 363)
+]
+
+terrenos_fazenda4 = [
+    [(980, 178)],
+    [(1505, 699), (1532, 489), (967, 186)],
+    [(1475, 1079), (604, 1079), (560, 795), (982, 212)]
+]
+
+caminhos_ilha4 = [
+    (19, 307), (449, 86), (1417, 467)
 ]

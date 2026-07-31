@@ -1,5 +1,5 @@
 import time
-from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas, terrenos_fazenda3, caminhos_ilha3
+from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas, terrenos_fazenda3, caminhos_ilha3, terrenos_fazenda4, caminhos_ilha4
 from src.core.farmActions import pegar_itens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardar_itens, viajar_ilha, posicionarIlha, ordenhar, alimentar
 from src.navigation.movement import navegarTerreno, navegarIlha
 
@@ -10,7 +10,7 @@ def iniciarAcoes():
     time.sleep(3)
 
     #Loop para percorrer nos terrenos
-    for ilha in range(2, 4):
+    for ilha in range(4):
         if ilha < 2:
             for indice, cliques_trajeto in enumerate(caminhosTerrenos):
                 numTerreno = indice + 1
@@ -48,7 +48,7 @@ def iniciarAcoes():
                 #Funções para pegar itens e posicionar o personagem na ilha 2 para realizar o processo de colheita e plantação.
                 time.sleep(1.5)
                 pegar_itens()
-                posicionarIlha()
+                posicionarIlha(ilha)
                 
         elif ilha == 2:
             for terreno, posicoes_ate_terreno in enumerate(terrenos_fazenda3):
@@ -70,8 +70,15 @@ def iniciarAcoes():
                     time.sleep(12)
             pegar_itens()
             posicionarIlha(ilha)
-        
-        
+
+        elif ilha == 3:
+            for terreno, posicoes_terreno in enumerate (terrenos_fazenda4):
+                navegarTerreno(posicoes_terreno, ilha)
+                realizarColheita()
+                prepararSemente()
+                realizarPlantacao(terreno)
+            navegarIlha(caminhos_ilha4, descerMontaria=3)
+            guardar_itens()
 
 #Executa o bot
 if __name__ == "__main__":
