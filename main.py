@@ -18,19 +18,12 @@ def iniciarAcoes():
 
                 #Chama função de navegar nos terrenos
                 navegarTerreno(cliques_trajeto, ilha)
-
                 #Funções de ação
                 realizarColheita()
-
-                #Estrutura de decisão necessária para fazer a troca de semente de acordo com o número do terreno na fazenda 2
-                if 11 <= numTerreno <= 16 and ilha == 1:
-                    sementeHorta(numTerreno)
-                else:
-                    prepararSemente()
-
+                prepararSemente()
                 realizarPlantacao(indice)
                 print(f"Terreno {numTerreno} finalizado.\n")
-                
+
             print("Ciclo de 16 terrenos completo!")
 
             #Loop para guardar itens coletados e viajar entre as ilhas
