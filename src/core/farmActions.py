@@ -59,37 +59,37 @@ def realizarPlantacao(indiceTerreno):
 def sementeHorta(terrenoAtual):
     print("Pegando Sementes de Dedaleira...")
     if terrenoAtual >= 11 <= 16:
-        pyautogui.press("i")
-        pyautogui.click(1737, 540, duration=0.6)
-        pyautogui.click(822, 427, duration=0.6)
+        pydirectinput.press("i")
+        click(1737, 540, duration=0.6)
+        click(822, 427, duration=0.6)
 
 def guardar_itens():
     print("Guardando itens...")
     for i in range(0, len(slot_itens), 2):
         x1, y1 = slot_itens[i]
         x2, y2 = slot_itens[i+1]
-        pyautogui.moveTo(x1, y1, duration=0.8)
-        pyautogui.dragTo(x2, y2, duration=0.8)
+        dragTo(x1, y1, x2, y2, duration=0.9)
         time.sleep(random.uniform(0.5, 0.8))
+    pydirectinput.press("esc")
 
 def pegar_itens():
     print("Pegando itens...")
     for i in range(1, len(slot_itens), 2):
         x1, y1 = slot_itens[i]
         x2, y2 = slot_itens[i-1]
-        pyautogui.moveTo(x1, y1, duration=0.9)
-        pyautogui.dragTo(x2, y2, duration=0.9)
+        dragTo(x1, y1, x2, y2, duration=0.8)
         time.sleep(random.uniform(0.5, 0.8))
+    pydirectinput.press("esc")
         
 
 def viajar_ilha(coordenadas_ilha):
-    pyautogui.click(170, 357, duration=0.7)
-    pyautogui.moveTo(166,396, duration=0.7)
-    pyautogui.moveTo(360, 396, duration=1)
+    click(170, 357, duration=0.7)
+    pydirectinput.moveTo(166,396, duration=0.7)
+    pydirectinput.moveTo(360, 396, duration=1)
     if coordenadas_ilha:
         x, y = coordenadas_ilha
-        pyautogui.click(x, y, duration=0.8)
-    pyautogui.click(231, 785, duration=0.8)
+        click(x, y, duration=0.8)
+    click(231, 785, duration=0.8)
 
 def posicionarIlha(ilha_atual):
     print("Posicionando personagem na ilha...")
