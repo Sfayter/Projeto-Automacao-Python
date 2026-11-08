@@ -1,33 +1,41 @@
-import pyautogui, time, random
+import time, random, pydirectinput
 from src.utils.config import spots_colheita, spots_plantacao, posicaoMontaria, slot_itens, posicionamentoIlha, spots_ordenha, spots_alimentacao
+from src.utils.input import click, clickPlantacao, rightClick, dragTo, moveTo
 
-pyautogui.FAILSAFE = True
+pydirectinput.FAILSAFE = True
 
 def realizarColheita():
     print("Iniciando Colheita...")
-    with pyautogui.hold('shift'): 
+    pydirectinput.keyDown ('shift')
+    try: 
         for coletarTerreno, (x, y) in enumerate(spots_colheita):
-            pyautogui.click(x, y, duration=0.4)
+            click(x, y, duration=0.4)
             if coletarTerreno in [0, 1, 2, 3, 5, 7]:
                 time.sleep(0.1)
             else:
                 time.sleep(0.35)
+    finally:
+        pydirectinput.keyUp('shift')
             
     
 #Função de pegar semente no inventário
 def prepararSemente():
     print(f"Pegando semente no inventário...")
-    pyautogui.press("i")
-    pyautogui.click(1676, 540, duration=0.6)
-    pyautogui.click(822, 427, duration=0.6)
+    pydirectinput.press("i")
+    click(1676, 540, duration=0.6)
+    click(822, 427, duration=0.6)
 
 
 def realizarPlantacao(indiceTerreno):
+    pausePadrao = pydirectinput.PAUSE
+    pydirectinput.PAUSE = 0
     print(f"Plantando no terreno {indiceTerreno + 1}...")
     
     for x, y in spots_plantacao:
-        pyautogui.click(x, y, duration=0.5)
+        click(x, y, duration=0.5)
         time.sleep(0.6)
+
+    pydirectinput.PAUSE = pausePadrao
 
     #Ajusta o boneco para pegar a montaria na posição correta e navegar nos terrenos
     time.sleep(random.uniform(0.7, 1))
@@ -37,16 +45,16 @@ def realizarPlantacao(indiceTerreno):
     
     #Loop para percorrer a lista e sublistas de posicaoMontaria e conseguir subir na montaria na posição correta.
     for x, y in passosMontaria:
-        pyautogui.rightClick(x, y, duration=0.7)
+        rightClick(x, y, duration=0.7)
         time.sleep(random.uniform(1, 1.4)) 
 
     #Sobe na montaria
-    pyautogui.press("a")
+    pydirectinput.press("a")
     time.sleep(random.uniform(0.5, 0.8))
     #Fecha o inventário aberto pela função prepararSemente
     #O motivo dele fechar nessa função é devido a dinâmica do jogo, pois se ele fechasse assim que pegasse a semente
     #ela voltaria para o inventário.
-    pyautogui.press("esc")
+    pydirectinput.press("esc")
 
 def sementeHorta(terrenoAtual):
     print("Pegando Sementes de Dedaleira...")

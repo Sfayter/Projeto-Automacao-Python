@@ -1,9 +1,16 @@
-import pyautogui
+import pyautogui, pydirectinput
 
 #Configuração global do PyAutoGUI
-pyautogui.PAUSE = 0.5
-pyautogui.FAILSAFE = True
-
+pyautogui.PAUSE = 0
+pydirectinput.PAUSE = 0.3
+pydirectinput.FAILSAFE = True
+screenWidth, screenHeight = pyautogui.size()
+pydirectinput.FAILSAFE_POINTS = [
+    (0, 0), 
+    (screenWidth - 1, 0), 
+    (0, screenHeight - 1), 
+    (screenWidth - 1, screenHeight - 1)
+]
 
 spots_colheita = [
     (968, 379), (954, 533), (827, 454),
