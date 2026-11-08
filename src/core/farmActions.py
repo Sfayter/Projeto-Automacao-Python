@@ -83,15 +83,22 @@ def viajar_ilha(coordenadas_ilha):
         pyautogui.click(x, y, duration=0.8)
     pyautogui.click(231, 785, duration=0.8)
 
-def posicionarIlha():
+def posicionarIlha(ilha_atual):
     print("Posicionando personagem na ilha...")
     pyautogui.press("a")
     time.sleep(random.uniform(5, 5.7))
     pyautogui.press("esc")
     time.sleep(0.6)
-    for x, y in posicionamentoIlha:
-        pyautogui.click(x, y, duration=0.8)
-        time.sleep(random.uniform(3, 3.5))
+    if ilha_atual <= 1:
+        for x, y in posicionamentoIlha[:3]:
+            pyautogui.click(x, y, duration=0.8)
+            time.sleep(random.uniform(3, 3.5))
+    #Condição para ignorar os 3 primeiros pontos da lista "PosicionamentoIlha" e garantir
+    #que seja usado os pontos para posicionar na fazenda 4(Thetford)
+    elif ilha_atual == 2:
+        for x, y in posicionamentoIlha[3:]:
+            pyautogui.click(x, y, duration=0.8)
+            time.sleep(random.uniform(3, 3.5))
 
 def ordenhar():
     for ordenhar_animais, (x, y) in enumerate(spots_ordenha):
