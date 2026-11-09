@@ -27,15 +27,15 @@ def prepararSemente():
 
 
 def realizarPlantacao(indiceTerreno):
-    pausePadrao = pydirectinput.PAUSE
+    pause = pydirectinput.PAUSE
     pydirectinput.PAUSE = 0
     print(f"Plantando no terreno {indiceTerreno + 1}...")
     
     for x, y in spots_plantacao:
-        click(x, y, duration=0.5)
+        clickPlantacao(x, y, duration=0.5)
         time.sleep(0.6)
 
-    pydirectinput.PAUSE = pausePadrao
+    pydirectinput.PAUSE = pause
 
     #Ajusta o boneco para pegar a montaria na posição correta e navegar nos terrenos
     time.sleep(random.uniform(0.7, 1))
@@ -93,33 +93,46 @@ def viajar_ilha(coordenadas_ilha):
 
 def posicionarIlha(ilha_atual):
     print("Posicionando personagem na ilha...")
-    pyautogui.press("a")
+    pydirectinput.press("a")
     time.sleep(random.uniform(5, 5.7))
-    pyautogui.press("esc")
+    pydirectinput.press("esc")
     time.sleep(0.6)
     if ilha_atual <= 1:
         for x, y in posicionamentoIlha[:3]:
-            pyautogui.click(x, y, duration=0.8)
+            click(x, y, duration=0.8)
             time.sleep(random.uniform(3, 3.5))
-    #Condição para ignorar os 3 primeiros pontos da lista "PosicionamentoIlha" e garantir
+    #Condição abaixo é para fazer um slicing e ignorar os 3 primeiros pontos da lista "PosicionamentoIlha" e garantir
     #que seja usado os pontos para posicionar na fazenda 4(Thetford)
     elif ilha_atual == 2:
         for x, y in posicionamentoIlha[3:]:
-            pyautogui.click(x, y, duration=0.8)
+            click(x, y, duration=0.8)
             time.sleep(random.uniform(3, 3.5))
 
 def ordenhar():
-    for ordenhar_animais, (x, y) in enumerate(spots_ordenha):
-        with pyautogui.hold('shift'):
-            pyautogui.click(x, y, duration=0.4)
+    pydirectinput.keyDown('shift')
+    pause = pydirectinput.PAUSE
+    pydirectinput.PAUSE = 0
+    try:
+        for ordenhar_animais, (x, y) in enumerate(spots_ordenha):
+            click(x, y, duration=0.4)
             if ordenhar_animais in [0, 4, 6, 8]:
-                time.sleep(0.1)
+                time.sleep(0.8)
+    finally:
+        pydirectinput.keyUp('shift')
+        pydirectinput.PAUSE = pause
+        
 
 def alimentar():
-    for alimentar_animais, (x, y) in enumerate(spots_alimentacao):
-        with pyautogui.hold('shift'):
-            pyautogui.click(x, y, duration=0.5)
+    pydirectinput.keyDown('shift')
+    pause = pydirectinput.PAUSE
+    pydirectinput.PAUSE = 0
+    try:
+        for alimentar_animais, (x, y) in enumerate(spots_alimentacao):
+            click(x, y, duration=0.5)
             if alimentar_animais in [0, 4, 6, 8]:
-                time.sleep(0.65)
-    pyautogui.press("a")
+                time.sleep(0.7)
+    finally:
+        pydirectinput.keyUp('shift')
+        pydirectinput.PAUSE = pause
+    pydirectinput.press("a")
     time.sleep(1.5)

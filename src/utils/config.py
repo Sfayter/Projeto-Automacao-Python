@@ -83,11 +83,11 @@ caminhosIlhas = [
     [(1016, 0), (303, 0), (0, 176), (697, 214), (1111, 338)],                       #Caminha até o baú
     [(809, 1045), (344, 937), (748, 477)],                                          #Caminha até o viajante
     [(1555, 79), (1022, 207)],                                                      #Pegar montaria, semente e abóbora - Fazenda 1, 2 e 3
-    [(1703, 85), (1244, 63), (1135, 185)]                                           #Pegar montaria e milho - Fazenda 4
+    [(1703, 85), (1244, 63), (1135, 185)]                                           #Pegar montaria e dedaleira - Fazenda 4
 ]
 
 posicionamentoIlha = [
-    (0, 897), (743, 756), (966, 895),                                               #Caminha para o ponto inicial de colheita e plantação nas ilhas 2, 3
+    (0, 897), (743, 756), (966, 895),                                               #Caminha para o ponto inicial de colheita e plantação nas ilhas 1 (dedaleira), 2(leite)
     (1622, 570), (1113, 712)                                                        #Caminha para o ponto inicial na ilha 4
 ]
 
