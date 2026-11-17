@@ -38,20 +38,28 @@ Humanização: Intervalos de tempo aleatórios (random.uniform) em todas as aç�
 
 [x] Função para navegar até a 2º fazenda, pegar montaria, semente e posicionar no ponto de colheita.
 
+[x] Mapear coordenadas de navegação para a 3º e 4º fazenda.
+
+[x] Mapear pontos de "embarque" da montaria para 3º fazenda devido a diferença no terreno.
+
+[x] Implementar função para ordenhar vacas e alimentar as mesmas na 3º fazenda.
+
+[x] Mapear pontos de "embarque" da montaria para 4º fazenda.
+
+[x] Mapear pontos de colheita e plantação na 4º fazenda.
+
 🚧 Em Desenvolvimento (Pendente)
 
-[ ] Mapear coordenadas de navegação para a 3º e 4º fazenda.
-
-[ ] Mapear pontos de "embarque" da montaria para 3º fazenda devido a diferença no terreno.
-
-[ ] Implementar função para ordenhar vacas e alimentar as mesmas na 3º fazenda.
+[] Painel visual para o script.
 
 🛠️ Tecnologias Utilizadas
 Python 3.10+
 
-PyAutoGUI: Biblioteca utilizada para controle do mouse e teclado.
+PyAutoGUI: Biblioteca utilizada para movimentar o mouse na tela.
 
-Random/Time: Para simulação de comportamento humano.
+PyDirectInput: Biblioteca utilizada para realizar as ações de clique no mouse e teclado.
+
+Random/Time: Para pausas durante as ações e para evitar conflitos entre funções.
 
 🔧 Como Configurar para Testes
 Resolução do Jogo: 1920x800 (Modo Janela sem bordas).
@@ -62,10 +70,8 @@ Tecla I: Abrir Inventário.
 
 Tecla Shift: Manter para colheita rápida.
 
-Calibração: Caso o boneco erre o clique, atualizar as listas spotColeta, posicaoMontaria, spotPlantacao e caminhoTerrenos com as novas coordenadas (x, y).
-
 ⚠️ Avisos de Segurança
 O bot possui o sistema FAILSAFE do PyAutoGUI ativo. Caso o bot perca o controle, arraste o mouse rapidamente para qualquer um dos quatro cantos da tela para forçar a paragem imediata.
 
 💡 Dica para o Futuro
-Este projeto pode ser expandido com OpenCV para identificar automaticamente se a planta está no estado de colheita antes de iniciar o ciclo, tornando-o 100% inteligente.
+Este projeto pode ser expandido com OpenCV para identificar automaticamente se o boneco está percorrendo o caminho correto.
