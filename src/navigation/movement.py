@@ -1,14 +1,15 @@
-import pyautogui, time
+import pyautogui, time, pydirectinput
+from src.utils.input import click, rightClick
 
 #Função de caminhar entre os terrenos de acordo com as coordenadas passadas na lista e sublistas da lista caminhosTerrenos
 def navegarTerreno(listaCliques, ilha=None):
 
     for x, y in listaCliques:
         if ilha < 2 or ilha == 3:
-            pyautogui.click(x, y, duration=1)
+            click(x, y, duration=1)
             time.sleep(3.3)
         else:
-            pyautogui.rightClick(x, y, duration=0.5)
+            rightClick(x, y, duration=0.5)
             time.sleep(3.3)
         #if para manutenção dos terrenos
         # resposta = input("Deseja continuar?")
@@ -16,13 +17,13 @@ def navegarTerreno(listaCliques, ilha=None):
         #      print("prosseguindo")
         #      time.sleep(1)
 
-    pyautogui.press("a")
+    pydirectinput.press("a")
 
 def navegarIlha(listaCliques, descerMontaria=None):
     indice = 0
     for x, y in listaCliques:
         indice += 1
-        pyautogui.click(x, y, duration=1)
+        click(x, y, duration=1)
         if indice == 1:
             time.sleep(4.3)
         else:
@@ -32,7 +33,7 @@ def navegarIlha(listaCliques, descerMontaria=None):
         #      print("prosseguindo")
         #      time.sleep(1)
         if descerMontaria and indice == descerMontaria:
-            pyautogui.press("a")
+            pydirectinput.press("a")
     
     #if para manutenção dos terrenos
     # resposta = input("Deseja continuar?")
