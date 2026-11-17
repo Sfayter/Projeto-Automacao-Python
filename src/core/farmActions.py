@@ -32,13 +32,13 @@ def realizarPlantacao(indiceTerreno):
     print(f"Plantando no terreno {indiceTerreno + 1}...")
     
     for x, y in spots_plantacao:
-        clickPlantacao(x, y, duration=0.5)
-        time.sleep(0.6)
+        clickPlantacao(x, y, duration=0.3)
+        time.sleep(1)
 
     pydirectinput.PAUSE = pause
 
     #Ajusta o boneco para pegar a montaria na posição correta e navegar nos terrenos
-    time.sleep(random.uniform(0.7, 1))
+    time.sleep(random.uniform(0.4, 0.7))
     passosMontaria = posicaoMontaria[indiceTerreno]
     
     print("Executando passos para subir na montaria...")
@@ -46,11 +46,11 @@ def realizarPlantacao(indiceTerreno):
     #Loop para percorrer a lista e sublistas de posicaoMontaria e conseguir subir na montaria na posição correta.
     for x, y in passosMontaria:
         rightClick(x, y, duration=0.7)
-        time.sleep(random.uniform(1, 1.4)) 
+        time.sleep(random.uniform(1.1, 1.5)) 
 
     #Sobe na montaria
     pydirectinput.press("a")
-    time.sleep(random.uniform(0.5, 0.8))
+    time.sleep(random.uniform(0.3, 0.6))
     #Fecha o inventário aberto pela função prepararSemente
     #O motivo dele fechar nessa função é devido a dinâmica do jogo, pois se ele fechasse assim que pegasse a semente
     #ela voltaria para o inventário.
@@ -68,7 +68,7 @@ def guardar_itens():
     for i in range(0, len(slot_itens), 2):
         x1, y1 = slot_itens[i]
         x2, y2 = slot_itens[i+1]
-        dragTo(x1, y1, x2, y2, duration=0.9)
+        dragTo(x1, y1, x2, y2, duration=0.8)
         time.sleep(random.uniform(0.5, 0.8))
     pydirectinput.press("esc")
 
@@ -77,7 +77,7 @@ def pegar_itens():
     for i in range(1, len(slot_itens), 2):
         x1, y1 = slot_itens[i]
         x2, y2 = slot_itens[i-1]
-        dragTo(x1, y1, x2, y2, duration=0.8)
+        dragTo(x1, y1, x2, y2, duration=0.9)
         time.sleep(random.uniform(0.5, 0.8))
     pydirectinput.press("esc")
         
@@ -115,8 +115,10 @@ def ordenhar():
     try:
         for ordenhar_animais, (x, y) in enumerate(spots_ordenha):
             click(x, y, duration=0.4)
-            if ordenhar_animais in [0, 4, 6, 8]:
+            if ordenhar_animais in [0, 4, 6]:
                 time.sleep(0.8)
+            elif ordenhar_animais in [8]:
+                time.sleep(1.4)
     finally:
         pydirectinput.keyUp('shift')
         pydirectinput.PAUSE = pause
@@ -129,8 +131,10 @@ def alimentar():
     try:
         for alimentar_animais, (x, y) in enumerate(spots_alimentacao):
             click(x, y, duration=0.5)
-            if alimentar_animais in [0, 4, 6, 8]:
+            if alimentar_animais in [0, 4, 6]:
                 time.sleep(0.7)
+            elif alimentar_animais in [8]:
+                time.sleep(1.2)
     finally:
         pydirectinput.keyUp('shift')
         pydirectinput.PAUSE = pause
