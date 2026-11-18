@@ -36,25 +36,23 @@ def realizarPlantacao(indiceTerreno):
         time.sleep(1)
 
     pydirectinput.PAUSE = pause
-
-    #Ajusta o boneco para pegar a montaria na posição correta e navegar nos terrenos
-    time.sleep(random.uniform(0.4, 0.7))
-    passosMontaria = posicaoMontaria[indiceTerreno]
-    
-    print("Executando passos para subir na montaria...")
-    
-    #Loop para percorrer a lista e sublistas de posicaoMontaria e conseguir subir na montaria na posição correta.
-    for x, y in passosMontaria:
-        rightClick(x, y, duration=0.7)
-        time.sleep(random.uniform(1.1, 1.5)) 
-
-    #Sobe na montaria
-    pydirectinput.press("a")
-    time.sleep(random.uniform(0.3, 0.6))
-    #Fecha o inventário aberto pela função prepararSemente
-    #O motivo dele fechar nessa função é devido a dinâmica do jogo, pois se ele fechasse assim que pegasse a semente
-    #ela voltaria para o inventário.
     pydirectinput.press("esc")
+
+def subirMontaria(indiceTerreno):
+    #Ajusta o boneco para pegar a montaria na posição correta e navegar nos terrenos
+        time.sleep(random.uniform(0.4, 0.7))
+        passosMontaria = posicaoMontaria[indiceTerreno]
+        
+        print("Executando passos para subir na montaria...")
+        
+        #Loop para percorrer a lista e sublistas de posicaoMontaria e conseguir subir na montaria na posição correta.
+        for x, y in passosMontaria:
+            rightClick(x, y, duration=0.7)
+            time.sleep(random.uniform(1.1, 1.5)) 
+    
+        #Sobe na montaria
+        pydirectinput.press("a")
+        time.sleep(random.uniform(0.3, 0.6))
 
 def sementeHorta(terrenoAtual):
     print("Pegando Sementes de Dedaleira...")
@@ -129,7 +127,7 @@ def alimentar():
     pause = pydirectinput.PAUSE
     pydirectinput.PAUSE = 0
     try:
-        for alimentar_animais, (x, y) in enumerate(spots_alimentacao):
+        for alimentar_animais, (x, y) in enumerate(spots_alimentacao[:9]):
             click(x, y, duration=0.5)
             if alimentar_animais in [0, 4, 6]:
                 time.sleep(0.7)
@@ -140,3 +138,21 @@ def alimentar():
         pydirectinput.PAUSE = pause
     pydirectinput.press("a")
     time.sleep(1.5)
+
+def fertilizarTerreno():
+    print("Fertilizando terreno...")
+    pydirectinput.keyDown('shift')
+    pause = pydirectinput.PAUSE
+    pydirectinput.PAUSE = 0
+    try:
+        for fertilizar, (x, y) in enumerate(spots_alimentacao):
+            clickPlantacao(x, y, duration=0.5)
+            if fertilizar in [0, 1, 2, 3, 5, 7, 9, 10]:
+                time.sleep(1.4)
+            elif fertilizar in [4, 6]:
+                time.sleep(1.7)
+            elif fertilizar in [8]:
+                time.sleep(2.2)
+    finally:
+        pydirectinput.keyUp('shift')
+        pydirectinput.PAUSE = pause

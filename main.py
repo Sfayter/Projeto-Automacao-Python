@@ -1,6 +1,6 @@
 import time
 from src.utils.config import caminhosTerrenos, caminhosIlhas, ilhas, terrenos_fazenda3, caminhos_ilha3, terrenos_fazenda4, caminhos_ilha4
-from src.core.farmActions import pegar_itens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardar_itens, viajar_ilha, posicionarIlha, ordenhar, alimentar
+from src.core.farmActions import fertilizarTerreno, subirMontaria, pegar_itens, realizarColheita, prepararSemente, realizarPlantacao, sementeHorta, guardar_itens, viajar_ilha, posicionarIlha, ordenhar, alimentar
 from src.navigation.movement import navegarTerreno, navegarIlha
 
 #Função Principal de Inicialização
@@ -22,6 +22,9 @@ def iniciarAcoes():
                 realizarColheita()
                 prepararSemente()
                 realizarPlantacao(indice)
+                if ilha == 0 and numTerreno <= 10:
+                    fertilizarTerreno()
+                subirMontaria(indice)
                 print(f"Terreno {numTerreno} finalizado.\n")
 
             print("Ciclo de 16 terrenos completo!")
