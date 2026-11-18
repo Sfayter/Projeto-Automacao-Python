@@ -73,6 +73,7 @@ def iniciarAcoes():
                 realizarColheita()
                 prepararSemente()
                 realizarPlantacao(terreno)
+                subirMontaria(indice)
             navegarIlha(caminhos_ilha4, descerMontaria=3)
             guardar_itens()
 

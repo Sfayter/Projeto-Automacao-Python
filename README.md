@@ -48,6 +48,8 @@ Humanização: Intervalos de tempo aleatórios (random.uniform) em todas as aç�
 
 [x] Mapear pontos de colheita e plantação na 4º fazenda.
 
+[x] Adicionar função para fertilizar os terrenos da 1º fazenda.
+
 🚧 Em Desenvolvimento (Pendente)
 
 [] Painel visual para o script.
